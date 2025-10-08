@@ -22,55 +22,55 @@ export default function Home(){
       <div className="banner">
         <div className="banner-content">
           <h1>We Build <span style={{color:'#7b46ff'}}>Productive</span> Apps</h1>
-          <p>At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.</p>
+          <p>At HEROLO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
           
           <div className="cta">
             <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">Google Play</a>
             <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">App Store</a>
           </div>
 
-          {/* Hero Image below buttons */}
-          <div className="banner-image">
-            <img src={heroImage} alt="Hero App Showcase" />
-          </div>
-
-          {/* Combined Stats Card */}
-          <div className="combined-stats-card">
-            <div className="stat-item">
-              <div className="stat-icon">⬇</div>
-              <div className="stat-content">
-                <div className="stat-value">{fmtBig(totalDownloads)}</div>
-                <div className="stat-label">Total Downloads</div>
-                <div className="stat-trend">21% More Than Last Month</div>
-              </div>
+          {/* Hero Image with Attached Trust Card */}
+          <div className="trust-section">
+            <div className="banner-image">
+              <img src={heroImage} alt="Hero App Showcase" />
             </div>
             
-            <div className="stat-item">
-              <div className="stat-icon">⭐</div>
-              <div className="stat-content">
-                <div className="stat-value">{fmtBig(totalReviews)}</div>
-                <div className="stat-label">Total Reviews</div>
-                <div className="stat-trend">46% More Than Last Month</div>
-              </div>
-            </div>
-            
-            <div className="stat-item">
-              <div className="stat-icon">📱</div>
-              <div className="stat-content">
-                <div className="stat-value">{activeApps}+</div>
-                <div className="stat-label">Active Apps</div>
-                <div className="stat-trend">31 More Will Launch</div>
+            {/* Trust Card attached to hero image */}
+            <div className="trust-card">
+              <p className="trust-text">Trusted By Millions, Built For You</p>
+              
+              <div className="stats-section">
+                <div className="stats-item">
+                  <span className="stats-value">{fmtBig(totalDownloads)}</span>
+                  <span className="stats-label">Total Downloads</span>
+                  <span className="stats-trend">21% More Than Last Month</span>
+                </div>
+                
+                <div className="stats-item">
+                  <span className="stats-value">{fmtBig(totalReviews)}</span>
+                  <span className="stats-label">Total Reviews</span>
+                  <span className="stats-trend">45% More Than Last Month</span>
+                </div>
+                
+                <div className="stats-item">
+                  <span className="stats-value">{activeApps}+</span>
+                  <span className="stats-label">Active Apps</span>
+                  <span className="stats-trend">31 More Yet Launch</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container" style={{marginTop:36}}>
-        <h2 style={{textAlign:'center'}}>Trending Apps</h2>
-        <p style={{textAlign:'center',color:'#6b7280'}}>Explore All Trending Apps on the Market developed by us</p>
+      {/* Trending Apps Section */}
+      <div className="container">
+        <div className="trending-header">
+          <h2>Trending Apps</h2>
+          <p>Explore All Trending Apps on the Market developed by us</p>
+        </div>
 
-        <div className="grid-4" style={{marginTop:18}}>
+        <div className="grid-4">
           {top8.map(a=> <AppCard key={a.id} app={a} />)}
         </div>
 
