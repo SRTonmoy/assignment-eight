@@ -37,7 +37,8 @@ return (
 ) : (
 <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18}}>
 {filtered.length ? filtered.map(a=>(
-<AppCard key={a.id} app={a} />
+
+<AppCard key={a.id} app={a} showInstallStatus={true} />
 )) : (
 <div style={{padding:20,background:'#fff',borderRadius:8}}>No App Found</div>
 )}
