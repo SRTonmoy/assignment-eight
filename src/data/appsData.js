@@ -19,11 +19,12 @@ const appsData = [
     ratingAvg: 5,
     downloads: 9000000,
     ratings: [
-      { name: "5 star", count: 12000 },
+      
       { name: "1 star", count: 1000 },
       { name: "2 star", count: 2000 },
       { name: "3 star", count: 3000 },
       { name: "4 star", count: 6000 },
+      { name: "5 star", count: 12000 },
       
     ],
   },

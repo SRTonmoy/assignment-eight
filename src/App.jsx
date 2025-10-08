@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation
+} from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -25,7 +30,10 @@ function AppContent() {
   return (
     <div className="app-root">
       <Header />
+
+      {/* Loader */}
       {isLoading && <Loader />}
+
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -35,15 +43,30 @@ function AppContent() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
+
       <Footer />
-      <ToastContainer position="top-right" autoClose={2500} />
+
+      {/* Toast Notifications */}
+      <ToastContainer 
+        position="top-right" 
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
 
+// ✅ Main wrapper with BrowserRouter
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AppContent />
     </BrowserRouter>
   );

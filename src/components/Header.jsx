@@ -18,7 +18,9 @@ return (
 <NavLink to="/" end className={({isActive})=>isActive? 'active':''}>Home</NavLink>
 <NavLink to="/apps" className={({isActive})=>isActive? 'active':''}>Apps</NavLink>
 <NavLink to="/installation" className={({isActive})=>isActive? 'active':''}>Installation</NavLink>
-<a className="btn-primary" target="_blank" href="https://github.com/your-username">Contribute</a>
+<a className="btn-primary" target="_blank" rel="noopener noreferrer" href="https://github.com/SRTonmoy/assignment-eight.git">
+  Contribute
+</a>
 </nav>
 </div>
 </header>

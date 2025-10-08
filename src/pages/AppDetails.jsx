@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Download, Star, MessageSquare } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import appsData from "../data/appsData";
 import { installApp, isInstalled } from "../utils/localStorage";
 import { toast } from "react-toastify";
@@ -29,6 +30,13 @@ const AppDetails = () => {
   }
 
   const totalRatings = app.ratings.reduce((sum, r) => sum + r.count, 0);
+
+  // Prepare data for Recharts
+  const chartData = app.ratings.map(rating => ({
+    name: rating.name,
+    count: rating.count,
+    percentage: ((rating.count / totalRatings) * 100).toFixed(1)
+  })).reverse(); // Reverse to show 5 stars first
 
   const handleInstall = () => {
     const success = installApp(app.id);
@@ -80,30 +88,37 @@ const AppDetails = () => {
         </div>
       </div>
 
-      {/* Ratings */}
+      {/* Ratings Chart with Recharts */}
       <div className="appdetails-ratings">
-        <h2>Ratings</h2>
-        {app.ratings.map((r, i) => {
-          const percent = ((r.count / totalRatings) * 100).toFixed(1);
-          return (
-            <div key={i} className="appdetails-rating-row">
-              <span className="appdetails-rating-label">{r.name}</span>
-              <div className="appdetails-rating-bar">
-                <div className="appdetails-rating-fill" style={{ width: `${percent}%` }}></div>
-              </div>
-              <span className="appdetails-rating-percent">{percent}%</span>
-            </div>
-          );
-        })}
+        <h2>Ratings Distribution</h2>
+        <div className="ratings-chart">
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={chartData} layout="vertical">
+              <XAxis type="number" domain={[0, 'dataMax + 1000']} />
+              <YAxis 
+                type="category" 
+                dataKey="name" 
+                width={80}
+                tick={{ fontSize: 14 }}
+              />
+              <Bar 
+                dataKey="count" 
+                fill="#7b46ff" 
+                radius={[0, 4, 4, 0]}
+                label={{ position: 'right', formatter: (value) => `${((value / totalRatings) * 100).toFixed(1)}%` }}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
       {/* Description */}
       <div className="appdetails-desc">
         <h2>Description</h2>
         <p>{app.description}</p>
-        <p>Users can create custom work and break intervals, track sessions, and review detailed statistics...</p>
-        <p>You can assign each task to a specific Pomodoro session, making your schedule more structured...</p>
-        <p>The app provides motivational streaks and achievements, gamifying productivity.</p>
+        <p>This focus app takes the proven Pomodoro technique and makes it even more practical for modern lifestyles. Users can create custom work and break intervals, track sessions, and review detailed statistics to optimize their productivity patterns.</p>
+        <p>You can assign each task to a specific Pomodoro session, making your schedule more structured and manageable throughout the day.</p>
+        <p>The app provides motivational streaks and achievements, gamifying productivity and helping you build consistent work habits over time.</p>
       </div>
 
       {/* Stats */}
