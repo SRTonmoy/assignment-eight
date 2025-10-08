@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { Github } from 'lucide-react' // Add this import
+import { Github } from 'lucide-react' 
 import logo from '../assets/logo.png'
 
 export default function Header(){
@@ -17,7 +17,7 @@ export default function Header(){
           <NavLink to="/" end className={({isActive})=>isActive? 'active':''}>Home</NavLink>
           <NavLink to="/apps" className={({isActive})=>isActive? 'active':''}>Apps</NavLink>
           <NavLink to="/installation" className={({isActive})=>isActive? 'active':''}>Installation</NavLink>
-          {/* Updated Contribute button with GitHub icon */}
+         
           <a className="contribute-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/SRTonmoy/assignment-eight.git">
             <Github size={18} />
             <span>Contribute</span>

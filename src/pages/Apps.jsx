@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import appsData from '../data/appsData'
 import AppCard from '../components/AppCard'
-import Loader from '../components/Loader'
+
 
 export default function Apps(){
   const [search, setSearch] = useState('')
@@ -26,7 +26,7 @@ export default function Apps(){
     return ()=>clearTimeout(t)
   },[search])
 
-  // Calculate displayed count based on search
+  
   const displayedCount = isSearching ? appsData.length : filtered.length
 
   return (

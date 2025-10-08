@@ -50,12 +50,12 @@ const AppDetails = () => {
 
   return (
     <div className="appdetails-page">
-      {/* Back Link */}
+      
       <div className="appdetails-back">
         <Link to="/apps"><ArrowLeft size={18} /> Back to All Apps</Link>
       </div>
 
-      {/* Header */}
+      
       <div className="appdetails-header">
         <div className="appdetails-image">
           <img src={app.image} alt={app.title} />
@@ -88,7 +88,7 @@ const AppDetails = () => {
         </div>
       </div>
 
-      {/* Ratings Chart with Recharts */}
+     
       <div className="appdetails-ratings">
         <h2>Ratings Distribution</h2>
         <div className="ratings-chart">
@@ -112,7 +112,7 @@ const AppDetails = () => {
         </div>
       </div>
 
-      {/* Description */}
+     
       <div className="appdetails-desc">
         <h2>Description</h2>
         <p>{app.description}</p>
@@ -121,7 +121,7 @@ const AppDetails = () => {
         <p>The app provides motivational streaks and achievements, gamifying productivity and helping you build consistent work habits over time.</p>
       </div>
 
-      {/* Stats */}
+      
       <div className="appdetails-stats">
         <div>
           <p className="number">{app.reviews.toLocaleString()}</p>

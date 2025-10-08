@@ -1,4 +1,4 @@
-// src/utils/localStorage.js
+
 const KEY = 'heroio_installed'
 
 export function getInstalled(){

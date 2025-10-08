@@ -1,3 +1,7 @@
+**Mobile Apps Marketplace SPA**
+
+A single-page app showcasing productive mobile apps with install tracking and interactive charts.
+
 **Description**
 A small marketplace style single page application showcasing productive mobile apps. Built-in features:
 - Home page (banner, states, top apps)

@@ -7,7 +7,7 @@ export default function Footer(){
     <footer className="footer">
       <div className="footer-container">
         
-        {/* Company Info */}
+       
         <div className="footer-section">
           <div className="footer-brand">
             <img src={logo} alt="HERO.IO Logo" className="footer-logo" />
@@ -36,7 +36,7 @@ export default function Footer(){
           </div>
         </div>
 
-        {/* Quick Links */}
+       
         <div className="footer-section">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
@@ -48,7 +48,7 @@ export default function Footer(){
           </ul>
         </div>
 
-        {/* Categories */}
+        
         <div className="footer-section">
           <h3 className="footer-heading">App Categories</h3>
           <ul className="footer-links">
@@ -60,7 +60,7 @@ export default function Footer(){
           </ul>
         </div>
 
-        {/* Contact & Support */}
+        
         <div className="footer-section">
           <h3 className="footer-heading">Support</h3>
           <ul className="footer-links">
@@ -72,7 +72,7 @@ export default function Footer(){
           </ul>
         </div>
 
-        {/* Newsletter */}
+       
         <div className="footer-section">
           <h3 className="footer-heading">Stay Updated</h3>
           <p className="newsletter-text">Get the latest app updates and news</p>
@@ -98,7 +98,7 @@ export default function Footer(){
 
       </div>
 
-      {/* Bottom Bar */}
+      
       <div className="footer-bottom">
         <div className="footer-bottom-content">
           <div className="copyright">
