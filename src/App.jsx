@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation
+} from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Loader from "./components/Loader";
+import Home from "./pages/Home";
+import Apps from "./pages/Apps";
+import AppDetails from "./pages/AppDetails";
+import Installation from "./pages/Installation";
+import ErrorPage from "./pages/ErrorPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+// ✅ This component handles route loading and layout
+function AppContent() {
+  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => setIsLoading(false), 350);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app-root bg-[#0b0f1a] min-h-screen text-white flex flex-col">
+      <Header />
+
+      {/* Loader */}
+      {isLoading && <Loader />}
+
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/apps" element={<Apps />} />
+          <Route path="/apps/:id" element={<AppDetails />} />
+          <Route path="/installation" element={<Installation />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
+
+      <Footer />
+
+      {/* Toast Notifications */}
+      <ToastContainer position="top-right" autoClose={2500} />
+    </div>
+  );
 }
 
-export default App
+// ✅ Main wrapper with BrowserRouter
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
