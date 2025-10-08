@@ -36,7 +36,10 @@ a{color:inherit;text-decoration:none}
 /* ===== HEADER SECTION ===== */
 .header{
   background:#fff;
-  border-bottom:1px solid #eee
+  border-bottom:1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .header .container{
   max-width:1100px;
@@ -44,27 +47,64 @@ a{color:inherit;text-decoration:none}
   padding:18px;
   display:flex;
   align-items:center;
-  justify-content:space-between
+  justify-content:space-between;
 }
 .logo{
   display:flex;
   align-items:center;
-  gap:10px
+  gap:10px;
+  cursor: pointer;
 }
-.logo img{height:36px}
+.logo img{
+  height:36px;
+  transition: height 0.3s ease;
+}
+.logo strong{
+  color:#6b21a8;
+  font-size: 1.25rem;
+  transition: font-size 0.3s ease;
+}
 .nav{
   display:flex;
   gap:20px;
-  align-items:center
+  align-items:center;
+  transition: all 0.3s ease;
 }
 .nav a{
   padding:8px 10px;
   border-radius:6px;
-  color:#0f172a
+  color:#0f172a;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 .nav a.active{
   color:var(--purple);
-  font-weight:600
+  font-weight:600;
+}
+
+/* Contribute Button with GitHub Icon */
+.contribute-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2ea44f, #3fb950);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(46, 164, 79, 0.4);
+}
+
+.contribute-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 164, 79, 0.6);
+  background: linear-gradient(135deg, #2c974b, #38a852);
 }
 
 /* ===== HOME PAGE STYLES ===== */
@@ -76,13 +116,14 @@ a{color:inherit;text-decoration:none}
   align-items: center;
   text-align: center;
   padding: 80px 20px 0px;
-  
+  background: linear-gradient(135deg, #f6f7f8 0%, #eef2f6 100%);
 }
 
 .banner-content {
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
+  width: 100%;
 }
 
 .banner h1 {
@@ -104,48 +145,95 @@ a{color:inherit;text-decoration:none}
   margin: 0 auto 40px;
 }
 
+/* CTA Buttons with Icons */
 .cta {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   justify-content: center;
   margin-bottom: 60px;
+  flex-wrap: wrap;
 }
 
-.cta a {
+.store-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   padding: 16px 32px;
   border-radius: 12px;
-  background: #7b46ff;
   color: #fff;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 14px rgba(123, 70, 255, 0.4);
   border: 2px solid transparent;
+  text-decoration: none;
+  min-width: 180px;
+  justify-content: center;
 }
 
-.cta a:hover {
+.store-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(123, 70, 255, 0.6);
-  background: #9167ff;
 }
 
-/* Hero Image  */
+.store-link.google-play {
+  background: linear-gradient(135deg, #4285F4, #34A853);
+  box-shadow: 0 4px 14px rgba(66, 133, 244, 0.4);
+}
+
+.store-link.app-store {
+  background: linear-gradient(135deg, #000000, #1D1D1F);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.store-link.google-play:hover {
+  background: linear-gradient(135deg, #3367D6, #2E8B57);
+  box-shadow: 0 8px 25px rgba(66, 133, 244, 0.6);
+}
+
+.store-link.app-store:hover {
+  background: linear-gradient(135deg, #1D1D1F, #000000);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Hero Image with Attached Trust Card - FULL WIDTH */
 .banner-image {
   width: 100%;
-  max-width: 900px;
+  max-width: 800px; /* Limit maximum width */
   margin: 0 auto;
   position: relative;
 }
 
 .banner-image img {
   width: 100%;
+  height: auto; /* Let height adjust automatically */
+  max-height: 350px; /* Maximum height limit */
+  object-fit: contain;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.hero-img {
+  width: 100%;
   height: auto;
-  
+  max-height: 300px; /* Even smaller maximum height */
+  object-fit: contain;
+  border-radius: 20px 20px 0 0; /* Slightly smaller border radius */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 15px;
+  display: block;
+}
+/* Alternative: If you want to keep the image larger but better contained */
+.hero-img.contained {
+  max-height: 350px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
 }
 
-/* Trust Section Card */
+/* Trust Section Card (Attached to Hero Image) - FULL WIDTH */
 .trust-section {
-  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -153,62 +241,105 @@ a{color:inherit;text-decoration:none}
 .trust-card {
   background: linear-gradient(135deg, #632EE3, #9F62F2);
   border-radius: 0 0 24px 24px;
-  padding: 40px 30px;
+  padding: 50px 40px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
   margin-top: -5px;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
-
 .trust-text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 900;
-  color: rgb(3, 3, 3) !important;
-  margin-bottom: 30px;
+  color: white !important;
+  margin-bottom: 40px;
   text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
 }
 
 .stats-section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .stats-item {
   text-align: center;
-  padding: 20px;
-  border-radius: 16px;
-  background: #f4f8fc;
-  transition: all 0.3s ease;
+  padding: 30px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.stats-item:hover::before {
+  left: 100%;
 }
 
 .stats-item:hover {
-  background: #f1f5f9;
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .stats-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 8px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #632EE3;
+  margin-bottom: 12px;
   display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stats-label {
-  font-size: 1.1rem;
-  color: #6b7280;
-  margin-bottom: 8px;
-  font-weight: 500;
+  font-size: 1.2rem;
+  color: #4B5563;
+  margin-bottom: 12px;
+  font-weight: 600;
   display: block;
+  letter-spacing: 0.5px;
 }
 
 .stats-trend {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #10b981;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
+  padding: 6px 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Add some decorative elements */
+.trust-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7);
+  border-radius: 24px 24px 0 0;
 }
 
 /* Trending Apps Section */
@@ -277,6 +408,280 @@ a{color:inherit;text-decoration:none}
 .small{
   font-size:13px;
   color:var(--muted)
+}
+/* ===== APPS PAGE STYLES ===== */
+.apps-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.apps-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.apps-header p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.apps-count {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-results-text {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: normal;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 12px 16px;
+  padding-right: 40px;
+  border-radius: 10px;
+  border: 1px solid #e7e7f0;
+  width: 350px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(123, 70, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.clear-search {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.clear-search:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Search Loading State */
+.search-loading {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.search-loader-spinner {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-loader .logo-spin {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: spin 1.1s linear infinite;
+  background-image: url('/src/assets/logo.png'); /* Make sure this path is correct */
+}
+
+.search-loader p {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Apps Grid Layout */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* No Apps Found State */
+.no-apps-found {
+  padding: 60px 40px;
+  background: #fff;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--muted);
+  grid-column: 1 / -1;
+  border: 2px dashed #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.no-apps-icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.no-apps-found h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.no-apps-found p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 400px;
+}
+/* Ratings Chart Styles */
+.ratings-chart {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.rating-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.rating-total,
+.rating-average {
+  color: #374151;
+}
+
+.rating-total strong,
+.rating-average strong {
+  color: #1f2937;
+}
+
+/* ===== RATINGS DISTRIBUTION STYLES ===== */
+.appdetails-ratings {
+  max-width:1100px; width:100%; background:var(--card);
+  border-radius:24px; box-shadow:0 6px 18px rgba(2,6,23,0.03);
+  padding:32px; margin-top:40px;
+}
+.appdetails-ratings h2 { font-size:1.4rem; margin-bottom:24px }
+.appdetails-rating-row {
+  display:flex; align-items:center; gap:16px; margin-bottom:12px;
+}
+.appdetails-rating-label { width:60px; color:var(--muted) }
+.appdetails-rating-bar {
+  flex:1; background:#e5e7eb; border-radius:999px; height:10px; overflow:hidden;
+}
+.appdetails-rating-fill { background:#f97316; height:100% }
+.appdetails-rating-percent {
+  width:50px; text-align:right; font-size:0.8rem; color:var(--muted);
+}
+/* Responsive Design for Apps Page */
+@media (max-width: 1200px) {
+  .apps-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-input {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .apps-header h2 {
+    font-size: 2rem;
+  }
+  
+  .apps-header p {
+    font-size: 1rem;
+  }
+  
+  .search-row {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .search-input {
+    width: 100%;
+  }
+  
+  .apps-count {
+    align-items: flex-start;
+  }
+  .hero-img {
+    max-height: 250px;
+    padding: 10px;
+  }
+  .ratings-chart {
+    padding: 20px;
+  }
+  
+  .rating-summary {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .no-apps-found {
+    padding: 40px 20px;
+  }
+  
+  .no-apps-icon {
+    font-size: 2.5rem;
+  }
+  
+  .no-apps-found h3 {
+    font-size: 1.3rem;
+  }
 }
 
 /* ===== APPS PAGE STYLES ===== */
@@ -350,29 +755,6 @@ a{color:inherit;text-decoration:none}
   font-size: 16px;
   grid-column: 1 / -1;
   border: 2px dashed #e5e7eb;
-}
-
-/* Responsive Design for Apps Page */
-@media (max-width: 1000px) {
-  .apps-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .apps-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .search-row {
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-  
-  .search-input {
-    width: 100%;
-  }
 }
 
 /* ===== APP DETAILS PAGE STYLES ===== */
@@ -487,46 +869,21 @@ a{color:inherit;text-decoration:none}
   background: #0d9c70;
 }
 
-/* Ratings */
-.appdetails-ratings {
-  max-width: 1100px;
-  width: 100%;
-  background: var(--card);
-  border-radius: 24px;
-  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.03);
-  padding: 32px;
-  margin-top: 40px;
+/* Ratings Chart Styles */
+.ratings-chart {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 16px;
 }
-.appdetails-ratings h2 {
-  font-size: 1.4rem;
-  margin-bottom: 24px;
+
+.recharts-bar-rectangle {
+  cursor: pointer;
 }
-.appdetails-rating-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-.appdetails-rating-label {
-  width: 60px;
-  color: var(--muted);
-}
-.appdetails-rating-bar {
-  flex: 1;
-  background: #e5e7eb;
-  border-radius: 999px;
-  height: 10px;
-  overflow: hidden;
-}
-.appdetails-rating-fill {
-  background: #f97316;
-  height: 100%;
-}
-.appdetails-rating-percent {
-  width: 50px;
-  text-align: right;
-  font-size: 0.8rem;
-  color: var(--muted);
+
+.recharts-label {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 /* Description */
@@ -611,41 +968,17 @@ a{color:inherit;text-decoration:none}
 
 /* App Not Found Styles */
 .appdetails-notfound {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
+  min-height:70vh; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center; padding:40px 20px;
 }
-
-.appdetails-notfound img {
-  max-width: 280px;
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-.appdetails-notfound h1 {
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: #0f172a;
-}
-
+.appdetails-notfound img { max-width:280px; width:100%; margin-bottom:24px }
+.appdetails-notfound h1 { font-size:1.8rem; margin-bottom:16px; color:#0f172a }
 .appdetails-notfound .back-btn {
-  background: var(--purple);
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s;
-  display: inline-block;
-  margin-top: 16px;
+  background:var(--purple); color:#fff; padding:12px 24px;
+  border-radius:8px; text-decoration:none;
+  transition:background 0.3s; display:inline-block; margin-top:16px;
 }
-
-.appdetails-notfound .back-btn:hover {
-  background: var(--purple-2);
-}
+.appdetails-notfound .back-btn:hover { background:var(--purple-2) }
 
 /* ===== FOOTER SECTION ===== */
 .footer {
@@ -888,12 +1221,60 @@ a{color:inherit;text-decoration:none}
   to{transform:rotate(360deg)}
 }
 
+/* Search Loader Styles */
+.search-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 15px;
+}
+
+.search-loader-spinner {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-loader-logo {
+  width: 40px;
+  height: 40px;
+  animation: spin 1.1s linear infinite;
+}
+
+.search-loader p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Large tablets and small desktops */
 @media (max-width: 1200px) {
   .grid-4 {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Trust Section Responsive */
+@media (max-width: 1024px) {
+  .stats-section {
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .stats-value {
+    font-size: 2.5rem;
+  }
+  
+  .trust-text {
+    font-size: 1.8rem;
+  }
+  .hero-img {
+    max-height: 280px;
+    padding: 12px;
   }
 }
 
@@ -912,6 +1293,34 @@ a{color:inherit;text-decoration:none}
   .stats-section {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+  
+  /* Header Responsive */
+  .header .container {
+    padding: 15px;
+  }
+  
+  .logo img {
+    height: 32px;
+  }
+  
+  .logo strong {
+    font-size: 1.1rem;
+  }
+  
+  .nav {
+    gap: 15px;
+  }
+  
+  .nav a {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+  
+  .contribute-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    gap: 6px;
   }
 }
 
@@ -935,7 +1344,7 @@ a{color:inherit;text-decoration:none}
     gap: 12px;
   }
   
-  .cta a {
+  .store-link {
     width: 250px;
     text-align: center;
   }
@@ -945,8 +1354,25 @@ a{color:inherit;text-decoration:none}
     gap: 16px;
   }
   
-  .stats-card {
-    padding: 24px 20px;
+  .trust-card {
+    padding: 40px 20px;
+  }
+  
+  .stats-item {
+    padding: 25px 20px;
+  }
+  
+  .stats-value {
+    font-size: 2.2rem;
+  }
+  
+  .trust-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .banner-image img {
+    height: 300px;
   }
   
   .trending-header h2 {
@@ -986,15 +1412,44 @@ a{color:inherit;text-decoration:none}
   .app-stores {
     align-items: center;
   }
+  
+  /* Header Mobile */
+  .header .container {
+    padding: 12px 15px;
+  }
+  
+  .logo img {
+    height: 28px;
+  }
+  
+  .logo strong {
+    font-size: 1rem;
+  }
+  
+  .nav {
+    gap: 12px;
+  }
+  
+  .nav a {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+  }
+  
+  .contribute-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    gap: 5px;
+  }
+  
+  .contribute-btn span {
+    display: none;
+  }
 }
 
 /* Small mobile devices */
 @media (max-width: 600px){
   .grid-4{
     grid-template-columns:repeat(1,1fr)
-  }
-  .logo img{
-    height:28px
   }
   .search-input{
     width:100%
@@ -1005,6 +1460,7 @@ a{color:inherit;text-decoration:none}
   
   .banner-image {
     margin-bottom: 50px;
+    max-width: 90%;
   }
   
   .trust-text {
@@ -1027,6 +1483,47 @@ a{color:inherit;text-decoration:none}
     width: 36px;
     height: 36px;
   }
+  
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-row {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  /* Header Small Mobile */
+  .header .container {
+    padding: 10px 15px;
+  }
+  
+  .logo {
+    gap: 8px;
+  }
+  
+  .logo img {
+    height: 24px;
+  }
+  
+  .logo strong {
+    font-size: 0.9rem;
+  }
+  
+  .nav {
+    gap: 8px;
+  }
+  
+  .nav a {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .contribute-btn {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
 }
 
 /* App Details Responsive */
@@ -1040,5 +1537,77 @@ a{color:inherit;text-decoration:none}
 @media (min-width: 640px) {
   .appdetails-stats {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .appdetails-ratings {
+    padding: 24px;
+    margin-top: 30px;
+  }
+  
+  .ratings-chart {
+    padding: 20px;
+  }
+  
+  .rating-summary {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  
+  /* Adjust chart for mobile */
+  .ratings-chart .recharts-yAxis {
+    font-size: 11px;
+  }
+  
+  .ratings-chart .recharts-label-list text {
+    font-size: 10px;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .trust-card {
+    padding: 30px 15px;
+  }
+  
+  .stats-item {
+    padding: 20px 15px;
+  }
+  
+  .stats-value {
+    font-size: 2rem;
+  }
+  
+  .stats-label {
+    font-size: 1.1rem;
+  }
+  
+  .trust-text {
+    font-size: 1.3rem;
+  }
+  
+  .cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .store-link {
+    width: 200px;
+  }
+  .hero-img {
+    max-height: 200px;
+    padding: 8px;
+  }
+  .appdetails-ratings {
+    padding: 20px;
+  }
+  
+  .ratings-chart {
+    padding: 15px;
+  }
+  
+  .appdetails-ratings h2 {
+    font-size: 1.2rem;
   }
 }

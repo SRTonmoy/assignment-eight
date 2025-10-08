@@ -1,4 +1,5 @@
 import React from 'react'
+import { Play, Apple } from 'lucide-react'
 import apps from '../data/appsData'
 import AppCard from '../components/AppCard'
 import heroImage from '../assets/hero.png'
@@ -24,15 +25,22 @@ export default function Home(){
           <h1>We Build <span style={{color:'#7b46ff'}}>Productive</span> Apps</h1>
           <p>At HEROLO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting. Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
           
+          {/* CTA with icons */}
           <div className="cta">
-            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">Google Play</a>
-            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer">App Store</a>
+            <a href="https://play.google.com" target="_blank" rel="noopener noreferrer" className="store-link google-play">
+              <Play size={20} />
+              <span>Google Play</span>
+            </a>
+            <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer" className="store-link app-store">
+              <Apple size={20} />
+              <span>App Store</span>
+            </a>
           </div>
 
-          {/* Hero Image with Attached Trust Card */}
+          {/* Hero Image with Full-width Trust Card */}
           <div className="trust-section">
             <div className="banner-image">
-              <img src={heroImage} alt="Hero App Showcase" />
+              <img src={heroImage} alt="Hero App Showcase" className="hero-img" />
             </div>
             
             {/* Trust Card attached to hero image */}
