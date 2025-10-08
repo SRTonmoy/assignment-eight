@@ -1,15 +1,21 @@
-// src/data/appsData.js
+
 import demoApp1 from '../assets/demo-app-1.webp';
 import demoApp2 from '../assets/demo-app-2.webp';
-// import demoApp1 from '../assets/demo-app-3.webp';
-// import demoApp2 from '../assets/demo-app-4.webp';
-// import demoApp1 from '../assets/demo-app-5.webp';
-// import demoApp2 from '../assets/demo-app-6.webp';
+import demoApp4 from '../assets/demo-app-4.webp';
+import demoApp3 from '../assets/demo-app-5.webp';
+import demoApp5 from '../assets/demo-app-14.png';
+import demoApp6 from '../assets/demo-app-6.webp';
+import demoApp7 from '../assets/demo-app-7.png';
+import demoApp8 from '../assets/demo-app-8.png';
+import demoApp9 from '../assets/demo-app-9.jpg';
+import demoApp10 from '../assets/demo-app-11.png';
+import demoApp11 from '../assets/demo-app-12.jpg';
+import demoApp12 from '../assets/demo-app-13.png';
 
 const appsData = [
   {
     id: 1,
-    image: demoApp1,
+    image: demoApp2,
     title: "Forest: Focus For Productivity",
     companyName: "productive.io",
     description:
@@ -30,7 +36,7 @@ const appsData = [
   },
   {
     id: 2,
-    image: demoApp2,
+    image: demoApp7,
     title: "SmPlan: ToDo List With Reminder",
     companyName: "productive.io",
     description:
@@ -49,7 +55,7 @@ const appsData = [
   },
   {
     id: 3,
-    image: "../assets/demo-app-3.webp",
+    image: demoApp8,
     title: "FLIP – Focus Timer For Study",
     companyName: "focus.io",
     description:
@@ -68,7 +74,7 @@ const appsData = [
   },
   {
     id: 4,
-    image: "../assets/demo-app-4.webp",
+    image: demoApp1,
     title: "Pomocat – Cute Pomodoro Timer",
     companyName: "focusfun.io",
     description:
@@ -87,7 +93,7 @@ const appsData = [
   },
   {
     id: 5,
-    image: "../assets/demo-app-5.webp",
+    image: demoApp6,
     title: "Time Planner: Schedule & Tasks",
     companyName: "productive.io",
     description:
@@ -106,7 +112,7 @@ const appsData = [
   },
   {
     id: 6,
-    image: "../assets/demo-app-6.webp",
+    image: demoApp9,
     title: "Morning Habits – Daily Routine",
     companyName: "habitly.io",
     description:
@@ -125,7 +131,7 @@ const appsData = [
   },
   {
     id: 7,
-    image: "../assets/demo-app-3.webp",
+    image: demoApp4,
     title: "Focus Plant: Pomodoro Forest",
     companyName: "greenfocus.io",
     description:
@@ -144,7 +150,7 @@ const appsData = [
   },
   {
     id: 8,
-    image: "../assets/demo-app-5.webp",
+    image: demoApp3,
     title: "Alarmy – Alarm Clock & Sleep",
     companyName: "sleepwell.io",
     description:
@@ -163,7 +169,7 @@ const appsData = [
   },
   {
     id: 9,
-    image: "../assets/demo-app-1.webp",
+    image: demoApp10,
     title: "Zen Timer – Meditation Focus",
     companyName: "zenlabs.io",
     description:
@@ -182,7 +188,7 @@ const appsData = [
   },
   {
     id: 10,
-    image: "../assets/demo-app-5.webp",
+    image: demoApp11,
     title: "GoalTrack – Progress Journal",
     companyName: "productive.io",
     description:
@@ -201,7 +207,7 @@ const appsData = [
   },
   {
     id: 11,
-    image: "../assets/demo-app-6.webp",
+    image: demoApp12,
     title: "MindEase – Focus & Calm",
     companyName: "mindlabs.io",
     description:
@@ -220,7 +226,7 @@ const appsData = [
   },
   {
     id: 12,
-    image: "../assets/demo-app-4.webp",
+    image: demoApp5,
     title: "ProdoHub – Smart Productivity",
     companyName: "productive.io",
     description:
