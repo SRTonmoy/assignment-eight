@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -15,8 +10,8 @@ import Installation from "./pages/Installation";
 import ErrorPage from "./pages/ErrorPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
-// ✅ This component handles route loading and layout
 function AppContent() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
@@ -28,13 +23,10 @@ function AppContent() {
   }, [location.pathname]);
 
   return (
-    <div className="app-root bg-[#0b0f1a] min-h-screen text-white flex flex-col">
+    <div className="app-root">
       <Header />
-
-      {/* Loader */}
       {isLoading && <Loader />}
-
-      <main className="flex-1">
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/apps" element={<Apps />} />
@@ -43,16 +35,12 @@ function AppContent() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
-
       <Footer />
-
-      {/* Toast Notifications */}
       <ToastContainer position="top-right" autoClose={2500} />
     </div>
   );
 }
 
-// ✅ Main wrapper with BrowserRouter
 export default function App() {
   return (
     <BrowserRouter>

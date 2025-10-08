@@ -5,7 +5,7 @@ import AppCard from '../components/AppCard'
 
 export default function Home(){
 const top8 = apps.slice(0,8)
-// compute simple stats
+
 const totalDownloads = apps.reduce((s,a)=>s+a.downloads,0)
 const totalReviews = apps.reduce((s,a)=>s+a.reviews,0)
 const activeApps = apps.length
